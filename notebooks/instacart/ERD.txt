@@ -1,0 +1,88 @@
+digraph G {
+        graph [
+            nodesep=0.5;
+            rankdir="LR";
+            cencentrate=true;
+            splines="spline";
+            fontname="Helvetica";
+            pad="0.2,0.2",
+            label="",
+
+        ];
+
+        node [shape=plain, fontname="Helvetica"];
+        edge [
+            dir=both,
+            fontsize=12,
+            arrowsize=0.9,
+            penwidth=1.0,
+            labelangle=32,
+            labeldistance=1.8,
+            fontname="Helvetica"
+        ];
+
+	 Aisles [ label=<
+        <table border="0" cellborder="1" cellspacing="0">
+        <tr><td bgcolor="pink"><b>Aisles</b></td></tr>
+        
+		<tr><td port="aisle_id" align="left" cellpadding="5">aisle_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="aisle" align="left" cellpadding="5">aisle <font color="grey60">object</font></td></tr>
+		</table>>];
+
+	 Departaments [ label=<
+        <table border="0" cellborder="1" cellspacing="0">
+        <tr><td bgcolor="skyblue"><b>Departaments</b></td></tr>
+        
+		<tr><td port="department_id" align="left" cellpadding="5">department_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="department" align="left" cellpadding="5">department <font color="grey60">object</font></td></tr>
+		</table>>];
+
+	 Order Products Train [ label=<
+        <table border="0" cellborder="1" cellspacing="0">
+        <tr><td bgcolor="grey"><b>Order Products Train</b></td></tr>
+        
+		<tr><td port="order_id" align="left" cellpadding="5">order_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="product_id" align="left" cellpadding="5">product_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="add_to_cart_order" align="left" cellpadding="5">add_to_cart_order <font color="grey60">int64</font></td></tr>
+		<tr><td port="reordered" align="left" cellpadding="5">reordered <font color="grey60">int64</font></td></tr>
+		</table>>];
+
+	 Order Products Prior [ label=<
+        <table border="0" cellborder="1" cellspacing="0">
+        <tr><td bgcolor="grey"><b>Order Products Prior</b></td></tr>
+        
+		<tr><td port="order_id" align="left" cellpadding="5">order_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="product_id" align="left" cellpadding="5">product_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="add_to_cart_order" align="left" cellpadding="5">add_to_cart_order <font color="grey60">int64</font></td></tr>
+		<tr><td port="reordered" align="left" cellpadding="5">reordered <font color="grey60">int64</font></td></tr>
+		</table>>];
+
+	 Orders [ label=<
+        <table border="0" cellborder="1" cellspacing="0">
+        <tr><td bgcolor="gold"><b>Orders</b></td></tr>
+        
+		<tr><td port="order_id" align="left" cellpadding="5">order_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="user_id" align="left" cellpadding="5">user_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="eval_set" align="left" cellpadding="5">eval_set <font color="grey60">object</font></td></tr>
+		<tr><td port="order_number" align="left" cellpadding="5">order_number <font color="grey60">int64</font></td></tr>
+		<tr><td port="order_dow" align="left" cellpadding="5">order_dow <font color="grey60">int64</font></td></tr>
+		<tr><td port="order_hour_of_day" align="left" cellpadding="5">order_hour_of_day <font color="grey60">int64</font></td></tr>
+		<tr><td port="days_since_prior_order" align="left" cellpadding="5">days_since_prior_order <font color="grey60">float64</font></td></tr>
+		</table>>];
+
+	 Products [ label=<
+        <table border="0" cellborder="1" cellspacing="0">
+        <tr><td bgcolor="pink"><b>Products</b></td></tr>
+        
+		<tr><td port="product_id" align="left" cellpadding="5">product_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="product_name" align="left" cellpadding="5">product_name <font color="grey60">object</font></td></tr>
+		<tr><td port="aisle_id" align="left" cellpadding="5">aisle_id <font color="grey60">int64</font></td></tr>
+		<tr><td port="department_id" align="left" cellpadding="5">department_id <font color="grey60">int64</font></td></tr>
+		</table>>];
+
+	 Products:aisle_id->Aisles:aisle_id [ 
+                        arrowhead=ocrow, arrowtail=none];
+
+	 Products:department_id->Departaments:department_id [ 
+                        arrowhead=ocrow, arrowtail=none];
+	}
